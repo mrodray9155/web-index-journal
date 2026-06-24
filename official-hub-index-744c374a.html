@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6f7f9;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      color: #1d2b3a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 深色头图 hero */
+    .hero {
+      background: linear-gradient(135deg, #0b1825 0%, #182a3a 70%, #1d3344 100%);
+      padding: 5.5rem 1.8rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99, 145, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #f0f4fa;
+      margin-bottom: 1rem;
+    }
+
+    .hero .sub {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #b6c9dd;
+      font-size: 1.05rem;
+      font-weight: 350;
+    }
+
+    /* 浅色正文区 wrapper */
+    .content {
+      max-width: 1000px;
+      margin: -2.5rem auto 3rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 2.8rem 2.2rem;
+      box-shadow: 0 12px 35px rgba(0, 20, 40, 0.07);
+      backdrop-filter: blur(1px);
+    }
+
+    .section {
+      margin-bottom: 2.2rem;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.35rem;
+      font-weight: 520;
+      color: #1f3042;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section h2 span {
+      display: inline-block;
+      background: #eef2f7;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #3d5a7a;
+      font-weight: 450;
+      letter-spacing: 0.3px;
+    }
+
+    .section p {
+      font-size: 0.98rem;
+      color: #2a3b4d;
+      margin-bottom: 0.8rem;
+    }
+
+    .section .meta-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.8rem;
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .section .meta-list li {
+      font-size: 0.95rem;
+      color: #30526b;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .section .meta-list li::before {
+      content: "▹";
+      color: #5882c7;
+      font-size: 1rem;
+    }
+
+    .faq-item {
+      margin: 0.9rem 0 0.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 530;
+      color: #1e3a5a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      margin-left: 0.2rem;
+    }
+
+    .highlight-link {
+      color: #1f6bb0;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .highlight-link:hover {
+      color: #0b4b87;
+      border-bottom: 1px solid #3071b6;
+    }
+
+    .access-note {
+      background: #f0f4fc;
+      border-radius: 18px;
+      padding: 1.5rem 1.8rem;
+      margin-top: 2rem;
+      border-left: 4px solid #5882c7;
+    }
+
+    .access-note p {
+      margin: 0.2rem 0;
+      font-size: 0.96rem;
+    }
+
+    .btn-dummy {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #becbd9;
+      border-radius: 40px;
+      padding: 0.4rem 1.6rem;
+      font-size: 0.9rem;
+      color: #3a5b7a;
+      transition: 0.2s;
+      cursor: default;
+    }
+
+    .btn-dummy:hover {
+      background: #e9eef5;
+      border-color: #9eb1c7;
+    }
+
+    /* 页尾 */
+    .page-footer {
+      max-width: 1000px;
+      margin: 0 auto 2.8rem;
+      padding: 0 1.5rem;
+      text-align: center;
+      border-top: 1px solid #dce3ec;
+      padding-top: 2rem;
+      color: #4e6883;
+      font-size: 0.9rem;
+    }
+
+    .page-footer span {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 3.8rem 1.2rem 3rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .intro-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .section h2 {
+        font-size: 1.15rem;
+      }
+      .section .meta-list {
+        gap: 0.3rem 1rem;
+      }
+      .access-note {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>爱游戏 · 专题阅览</h1>
+    <div class="sub">
+      从简明指南到访问提醒，带你快速了解平台定位、内容边界与使用要点。
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="intro-card">
+
+      <!-- 第一部分：背景说明 -->
+      <section class="section">
+        <h2>📋 平台背景 <span>简明定位</span></h2>
+        <p><strong><a href="https://official-hub-igame.com" class="highlight-link">爱游戏</a></strong> 围绕综合游戏内容与社区互动构建，主要面向偏好轻量浏览与信息聚合的用户。平台并不直接提供客户端或游戏本体下载，而是聚焦于专题整理、版本动态与活动摘要——你可以把它看作一个游戏信息的中转参考节点。</p>
+        <p>截至 2025 年初，站内收录了超过 300 条有效条目，覆盖独立游戏、手机端热门作品以及部分经典单机专题。所有内容均以人工筛选 + 公开信息整合方式更新，更新节奏约为每周 3–5 次。</p>
+      </section>
+
+      <!-- 第二部分：三段自然介绍 —— 实际拆为两个小段 + 特色列表 -->
+      <section class="section">
+        <h2>🧭 内容结构 <span>模块说明</span></h2>
+        <p>首页目前包含四大模块：<strong>专题速览</strong>（近期活动/版本节点）、<strong>条目列表</strong>（按类型与日期排列）、<strong>社区摘要</strong>（精选讨论与提醒）以及 <strong>FAQ 区</strong>。专题速览部分会标记每个条目所属的类型标签，例如「活动向」「版本记录」「背景解读」等，方便快速定位。</p>
+        <p>如果你需要快速检索某款游戏的版本演变或官方活动时间线，<strong><a href="https://official-hub-igame.com" class="highlight-link">爱游戏</a></strong> 的条目页会提供结构化的摘要，并附带原始来源链接。平台本身不存储任何媒体文件，仅做索引与概述。</p>
+
+        <ul class="meta-list">
+          <li>内容类型覆盖：版本记录 / 活动梳理 / 专题介绍</li>
+          <li>更新频次：每周 3~5 次（人工整合）</li>
+          <li>外部引用来源均标注于条目底部</li>
+          <li>无用户注册要求，直接浏览</li>
+        </ul>
+      </section>
+
+      <!-- 第三部分：FAQ 摘要 + 访问提示（合并） -->
+      <section class="section">
+        <h2>❓ 常见摘要 <span>FAQ 简版</span></h2>
+
+        <div class="faq-item">
+          <strong>▪ 平台是否提供下载链接？</strong>
+          <p>不提供。所有条目仅包含官方公告、商店页或可信媒体文章的链接，不直接托管或分发任何游戏文件、补丁或APK。</p>
+        </div>
+        <div class="faq-item">
+          <strong>▪ 内容来源是否可靠？</strong>
+          <p>编辑团队以公开官方信息（商店页面、开发者博客、新闻稿）为基础，并标注参考时间。部分社区讨论内容会以“社区摘要”板块单独呈现，并注明出处。</p>
+        </div>
+        <div class="faq-item">
+          <strong>▪ 移动端浏览体验如何？</strong>
+          <p>页面采用响应式布局，在手机与平板上均可正常阅读条目与专题。无独立App，建议通过浏览器直接访问 <a href="https://official-hub-igame.com" class="highlight-link">爱游戏</a>。</p>
+        </div>
+
+        <div class="access-note">
+          <p><strong>📌 访问提醒</strong></p>
+          <p>建议使用主流浏览器（Chrome / Edge / Safari 最新版）以获得完整排版效果。平台未使用第三方跟踪脚本，无弹窗广告。若遇到加载异常，可尝试清除缓存或检查网络环境。</p>
+          <p style="margin-top: 0.8rem;"><span class="btn-dummy">◉ 站点状态：正常</span> <span style="margin-left: 0.5rem; color: #4b6f8f;">更新于本月</span></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <span>内容仅供参考 · 具体信息以官方为准</span><br>
+    <span style="font-size: 0.8rem;">© 2025 · 基于公开信息整理</span>
+  </footer>
+
+</body>
+</html>
